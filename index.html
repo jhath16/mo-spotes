@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+  <head>
+    <title>FratChat</title>
+    <link rel="stylesheet" href="main.css">
+  </head>
+  <body>
+    <script type="text/template" id="home">
+      <h1>Live Games</h1>
+      <div class="games-container">
+        <ul></ul>
+      </div>
+    </script>
+
+    <script type='text/template' id='game-tile'>
+      <a href="#games/<%= href %>">
+        <div class="game-tile">
+          <div class='team-1' style="background:linear-gradient(90deg,<%= teamOne.colorOne %>,<%= teamOne.colorTwo %>)">
+            <h4><%= teamOne.name %></h4>
+          </div>
+          <div class="team-2" style="background:linear-gradient(90deg,<%= teamTwo.colorOne %>,<%= teamTwo.colorTwo %>)">
+            <h4><%= teamTwo.name %></h4>
+          </div>
+        </div>
+      </a>
+    </script>
+
+    <script type='text/template' id='game-page'>
+      <nav>
+        <h2><%=teamOne.name %></h2> VS. <h2><%= teamTwo.name %></h2>
+      </nav>
+      <input type="text" placeholder="Say something nice...">
+    </script>
+
+    <script type="text/template" id="login">
+      <h1>Sign Up</h1>
+      <form class="sign-up">
+        <input type="text" name='email' placeholder='email'>
+        <input type="text" name='display-name' placeholder='username'>
+        <input type="password" name="password" placeholder='password'>
+        <button>Submit</button>
+      </form>
+      <h1>Login</h1>
+      <form class="login">
+        <input type="text" name="email" placeholder='email'>
+        <input type="password" name="password" placeholder='password'>
+        <button>Submit</button>
+      </form>
+    </script>
+
+    <script src="https://www.gstatic.com/firebasejs/3.6.1/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyBPee8KJE0YzFYfMjpTXay0i0CdAwMEOv0",
+        authDomain: "sports-chat-fb2a2.firebaseapp.com",
+        databaseURL: "https://sports-chat-fb2a2.firebaseio.com",
+        storageBucket: "sports-chat-fb2a2.appspot.com",
+        messagingSenderId: "93976952907"
+      };
+      firebase.initializeApp(config);
+    </script>
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/underscore/underscore-min.js"></script>
+    <script src="node_modules/moment/min/moment.min.js"></script>
+    <script src="node_modules/backbone/backbone-min.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
