@@ -159,6 +159,11 @@ var Router = Backbone.Router.extend({
 
   execute: function (callback, args) {
     removeAllViews();
+    if (!firebase.auth().currentUser) {
+      this.navigate('login');
+      this.login();
+      return false;
+    }
     if (callback) callback.apply(this, args);
   },
 
